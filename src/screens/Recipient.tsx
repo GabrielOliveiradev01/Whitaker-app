@@ -10,7 +10,8 @@ export default function Recipient() {
   const nav = useNavigate();
   const accent = RECIPIENT_APP.accent;
   const transactions = useStore((s) => s.transactions);
-  const notifications = useStore((s) => s.notifications.filter((n) => n.app === 'recipient'));
+  const allNotifications = useStore((s) => s.notifications);
+  const notifications = allNotifications.filter((n) => n.app === 'recipient');
 
   // Tudo que o Whitaker enviou ('out') é dinheiro recebido aqui.
   const received = transactions.filter((t) => t.direction === 'out');
