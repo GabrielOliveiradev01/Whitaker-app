@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import PhoneFrame from './components/PhoneFrame';
 import ToastHost from './components/ToastHost';
 import Login from './screens/Login';
 import Home from './screens/Home';
@@ -33,7 +32,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <PhoneFrame>
+      <div className="relative mx-auto h-dvh w-full max-w-[520px] overflow-hidden bg-ink">
         <ToastHost />
         <Routes>
           <Route path="/" element={<Root />} />
@@ -46,7 +45,7 @@ export default function App() {
           <Route path="/recebedor" element={<Recipient />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </PhoneFrame>
+      </div>
     </BrowserRouter>
   );
 }
